@@ -28,11 +28,9 @@ def eval_loop():
 	while True:
 		ui = raw_input ("Enter command or 'done' to quit: ")     # User input prompt
 		if ui == 'done':		# Breaks if user enters 'done'
-			break			   
+			return ui			    
 		else:
 			print eval(ui)		# Evaluates the code entered by user 
-
-
 
 
 ################################################################################

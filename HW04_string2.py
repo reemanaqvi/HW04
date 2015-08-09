@@ -16,8 +16,14 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-  # +++your code here+++
-  return
+  if len (s) < 3:
+    return s
+  else:
+    if s [-3:] == 'ing':   # Checks if the last 3 letters are 'ing'
+      return s + 'ly'
+    else:
+      return s + 'ing'
+  
 
 
 # E. not_bad
@@ -29,9 +35,14 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
-
+  not_index = s.find ('not')
+  bad_index = s.find ('bad')
+  if not_index < bad_index and not_index != -1: 
+# Remove till the end of the substring by adding 3 because s.find gives the first letter's index only 
+    substr = s[not_index:bad_index+3]
+    return s.replace(substr, 'good')
+  else:
+    return s
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -41,12 +52,35 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+  if len(a)%2 or len(b)%2 == 1:
+    a1 , a2 = a[ : (len(a)+1) / 2] , a[(len(a)+1) / 2 : ]
+    b1 , b2 = b[ : (len(b)+1) / 2] , b[(len(b)+1) / 2 : ]
+  else: 
+    a1 , a2 = a[ :len(a) / 2] , a[len(a) / 2 :]
+    b1 , b2 = b[ :len(b) / 2] , b[len(b) / 2 :]
+
+  return a1 + b1+ a2 + b2
+
+# This is better solved with a function
+
+  # def halve(s):
+  #   l = len (s)
+  #   if l%2 == 0:
+  #     d = l/2
+  #   else: 
+  #     d = (l+1)/2
+  #   return (s[:d], s[d:])
+
+  # a1, a2 = halve (a)
+  # b1, b2 = halve (b)
+
+  # return a1 + b1 + a2 + b2
 
 
-# Simple provided test() function used in main() to print
-# what each function returns vs. what it's supposed to return.
+
+
+# # Simple provided test() function used in main() to print
+# # what each function returns vs. what it's supposed to return.
 def test(got, expected):
   if got == expected:
     prefix = ' OK '
