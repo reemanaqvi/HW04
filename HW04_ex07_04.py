@@ -21,17 +21,24 @@
 
 ################################################################################
 # Imports
-
+import math 
 
 # Body
+def eval_loop():
+	while True:
+		ui = raw_input ("Enter command or 'done' to quit: ")     # User input prompt
+		if ui == 'done':		# Breaks if user enters 'done'
+			break			   
+		else:
+			print eval(ui)		# Evaluates the code entered by user 
 
 
 
 
 ################################################################################
 def main():
-    pass # Remove this line and uncomment below once eval_loop is defined.
-    # eval_loop()
+  
+	eval_loop()
     
 
 if __name__ == '__main__':

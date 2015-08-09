@@ -20,15 +20,21 @@
 
 # Body
 
-
+def count (word, l):
+	index = 0
+	for letter in word:
+		if letter == l:
+			index += 1
+	print index
 
 
 ################################################################################
 def main():
 
-    # Remove print("Hello World!") and add several functions calls to count()
-    # below, passing various strings and letters
-    print("Hello World!") 
+	count ('palindrome', 'i')
+	count ('divided','d')
+	count ('billabong', 'b')
+	count ('ermmmmm', 'm')
     
 
 if __name__ == '__main__':
